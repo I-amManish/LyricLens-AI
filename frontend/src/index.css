@@ -30,6 +30,19 @@ body {
   min-width: 320px;
   min-height: 100dvh;
 }
+/* Hide studio scrollbars without disabling scrolling */
+
+html,
+.studio-shell,
+.studio-shell * {
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+.studio-shell::-webkit-scrollbar,
+.studio-shell *::-webkit-scrollbar {
+  display: none;
+}
 
 /* ========================================
    SPATIAL BACKGROUND
@@ -261,5 +274,13 @@ button:not(:disabled):active {
   button:not(:disabled):hover,
   button:not(:disabled):active {
     transform: none;
+  }
+}
+
+/* Vertically align both toolbars with the camera stage */
+
+@media (min-width: 768px) {
+  .studio-shell > div:has(> main) > aside {
+    padding-top: 4.5rem;
   }
 }
