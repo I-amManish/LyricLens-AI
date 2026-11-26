@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+coverage/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+.venv/
+venv/
+*.pyc
+
+# AI model weights
+*.pt
+*.pth
+*.onnx
+*.safetensors
+
+# User media and generated content
+uploads/
+recordings/
+outputs/
+
+# Logs
+*.log
+
+# Operating system
+.DS_Store
+Thumbs.db
