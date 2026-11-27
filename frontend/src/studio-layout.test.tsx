@@ -14,25 +14,29 @@ import {
 import App from "./App";
 
 describe("Spatial studio layout", () => {
-  it("places music upload inside the music player", () => {
+  it("places music upload inside the camera stage", () => {
     render(<App />);
 
-    const player = screen.getByRole("contentinfo");
+    const camera = screen.getByRole("region", {
+      name: "Camera preview",
+    });
 
     expect(
-      within(player).getByRole("button", {
+      within(camera).getByRole("button", {
         name: "Upload Music",
       })
     ).toBeEnabled();
   });
 
-  it("places PC audio inside the music player", () => {
+  it("places PC audio inside the camera stage", () => {
     render(<App />);
 
-    const player = screen.getByRole("contentinfo");
+    const camera = screen.getByRole("region", {
+      name: "Camera preview",
+    });
 
     expect(
-      within(player).getByRole("button", {
+      within(camera).getByRole("button", {
         name: "Connect PC Audio",
       })
     ).toBeInTheDocument();
