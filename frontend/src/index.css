@@ -284,3 +284,39 @@ button:not(:disabled):active {
     padding-top: 4.5rem;
   }
 }
+
+
+/* ========================================
+   MAXIMIZED CAMERA WORKSPACE
+======================================== */
+
+@media (min-width: 768px) {
+  /* Minimize outer workspace spacing */
+  .studio-shell > div:has(> main) {
+    gap: 8px;
+    padding-inline: 8px;
+    padding-bottom: 8px;
+  }
+
+  /* Compact navigation and AI sidebars */
+  .studio-shell > div:has(> main) > aside {
+    padding-top: 0;
+  }
+
+  .studio-shell nav,
+  .studio-shell [aria-label="Creative controls"] {
+    gap: 6px;
+    padding: 4px;
+  }
+
+  .studio-shell nav button,
+  .studio-shell [aria-label="Creative controls"] button {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Compact application header */
+  .studio-shell > header {
+    padding: 6px 14px;
+  }
+}

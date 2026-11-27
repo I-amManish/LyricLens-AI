@@ -5,28 +5,70 @@ import Header from "./Header";
 import Navigation from "./Navigation";
 import CreativeToolbar from "./CreativeToolbar";
 
-import MusicPlayer from "../features/audio/MusicPlayer";
+import MusicProvider from "../features/audio/MusicProvider";
+
+import GestureProvider from "../features/gestures/GestureProvider";
+
+import {
+  useGestures,
+} from "../features/gestures/gestureContext";
 
 interface StudioLayoutProps {
   children: ReactNode;
 }
 
-export default function StudioLayout({
+function StudioLayoutContent({
   children,
 }: StudioLayoutProps) {
+  const { registerRoot } = useGestures();
+
   return (
-    <div className="studio-shell flex min-h-dvh flex-col text-studio-text md:h-dvh md:overflow-hidden">
+    <div
+      ref={registerRoot}
+      className="
+        studio-shell
+        flex
+        min-h-dvh
+        flex-col
+        text-studio-text
+        md:h-dvh
+        md:overflow-hidden
+      "
+    >
       <Header />
 
-      <div className="flex min-h-0 flex-1 flex-col gap-4 px-4 md:flex-row md:px-6">
+      <div
+        className="
+          flex
+          min-h-0
+          flex-1
+          flex-col
+          gap-2
+          px-2
+          pb-2
+          md:flex-row
+        "
+      >
         <Navigation />
 
         {children}
 
         <CreativeToolbar />
       </div>
-
-      <MusicPlayer />
     </div>
+  );
+}
+
+export default function StudioLayout({
+  children,
+}: StudioLayoutProps) {
+  return (
+    <GestureProvider>
+      <MusicProvider>
+        <StudioLayoutContent>
+          {children}
+        </StudioLayoutContent>
+      </MusicProvider>
+    </GestureProvider>
   );
 }

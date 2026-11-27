@@ -1,3 +1,4 @@
+
 # Logs
 logs
 *.log
@@ -7,10 +8,15 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies and build output
 node_modules
 dist
 dist-ssr
 *.local
+
+# Generated local AI assets
+/public/models/hand_landmarker.task
+/public/mediapipe/wasm/
 
 # Editor directories and files
 .vscode/*
